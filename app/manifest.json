@@ -1,27 +1,108 @@
 {
-  "name": "VismifyTools - Essential Islamic Tools",
+  "name": "VismifyTools - Essential Islamic Tools for Muslims Worldwide",
   "short_name": "VismifyTools",
-  "description": "Fast, simple, and reliable Islamic tools for every Muslim worldwide",
+  "description": "The world's most comprehensive Islamic tools platform trusted by 500K+ Muslims. Ultra-accurate Prayer Times, GPS Qibla Finder, AI Halal Checker, Zakat Calculator, HD Quran Reader & more. 100% free, lightning fast, and completely secure.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#059669",
+  "theme_color": "#10B981",
   "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "maskable any"
     },
     {
       "src": "/icon-512.png", 
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "categories": ["utilities", "lifestyle", "education"],
-  "lang": "en",
-  "dir": "ltr"
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "VismifyTools on mobile - Islamic tools at your fingertips"
+    },
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "VismifyTools desktop experience - Comprehensive Islamic platform"
+    }
+  ],
+  "categories": ["utilities", "lifestyle", "education", "productivity", "social"],
+  "shortcuts": [
+    {
+      "name": "Prayer Times",
+      "short_name": "Prayer",
+      "description": "Check accurate prayer times for your location",
+      "url": "/prayer-times",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Qibla Finder",
+      "short_name": "Qibla",
+      "description": "Find direction to Mecca from anywhere",
+      "url": "/qibla-finder",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Halal Checker",
+      "short_name": "Halal",
+      "description": "Verify if food products are Halal",
+      "url": "/halal-checker",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Zakat Calculator",
+      "short_name": "Zakat",
+      "description": "Calculate your Zakat obligations",
+      "url": "/zakat-calculator",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.vismifytools.app",
+      "id": "com.vismifytools.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/vismifytools/id123456789",
+      "id": "123456789"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "capture_links": "new-client",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "protocol_handlers": [
+    {
+      "protocol": "web+vismifytools",
+      "url": "/?tool=%s"
+    }
+  ]
 }

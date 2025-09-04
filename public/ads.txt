@@ -1,0 +1,4 @@
+# VismifyTools Ads.txt - Google AdSense Verification
+google.com, pub-vismifytools-2025, DIRECT, f08c47fec0942fa0
+# Additional ad networks can be added here
+# Format: domain, publisher_id, relationship, certification_authority_id

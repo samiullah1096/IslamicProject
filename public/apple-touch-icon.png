@@ -1,0 +1,16 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="45" fill="url(#appleGradient)"/>
+  <path d="M45 67.5L90 45L135 67.5V112.5C135 124.926 124.926 135 112.5 135H67.5C55.0736 135 45 124.926 45 112.5V67.5Z" fill="white"/>
+  <circle cx="90" cy="90" r="18" fill="url(#appleInner)"/>
+  <defs>
+    <linearGradient id="appleGradient" x1="0" y1="0" x2="180" y2="180">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="appleInner" x1="72" y1="72" x2="108" y2="108">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+</svg>

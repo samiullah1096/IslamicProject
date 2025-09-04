@@ -1,73 +1,213 @@
-{
-  "name": "nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^3.9.0",
-    "@next/font": "^14.2.15",
-    "@next/swc-wasm-nodejs": "13.5.1",
-    "@radix-ui/react-accordion": "^1.2.0",
-    "@radix-ui/react-alert-dialog": "^1.1.1",
-    "@radix-ui/react-aspect-ratio": "^1.1.0",
-    "@radix-ui/react-avatar": "^1.1.0",
-    "@radix-ui/react-checkbox": "^1.1.1",
-    "@radix-ui/react-collapsible": "^1.1.0",
-    "@radix-ui/react-context-menu": "^2.2.1",
-    "@radix-ui/react-dialog": "^1.1.1",
-    "@radix-ui/react-dropdown-menu": "^2.1.1",
-    "@radix-ui/react-hover-card": "^1.1.1",
-    "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-menubar": "^1.1.1",
-    "@radix-ui/react-navigation-menu": "^1.2.0",
-    "@radix-ui/react-popover": "^1.1.1",
-    "@radix-ui/react-progress": "^1.1.0",
-    "@radix-ui/react-radio-group": "^1.2.0",
-    "@radix-ui/react-scroll-area": "^1.1.0",
-    "@radix-ui/react-select": "^2.1.1",
-    "@radix-ui/react-separator": "^1.1.0",
-    "@radix-ui/react-slider": "^1.2.0",
-    "@radix-ui/react-slot": "^1.1.0",
-    "@radix-ui/react-switch": "^1.1.0",
-    "@radix-ui/react-tabs": "^1.1.0",
-    "@radix-ui/react-toast": "^1.2.1",
-    "@radix-ui/react-toggle": "^1.1.0",
-    "@radix-ui/react-toggle-group": "^1.1.0",
-    "@radix-ui/react-tooltip": "^1.1.2",
-    "@types/node": "20.6.2",
-    "@types/react": "18.2.22",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.15",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "cmdk": "^1.0.0",
-    "date-fns": "^3.6.0",
-    "embla-carousel-react": "^8.3.0",
-    "eslint": "8.49.0",
-    "eslint-config-next": "13.5.1",
-    "framer-motion": "^12.23.12",
-    "input-otp": "^1.2.4",
-    "lucide-react": "^0.446.0",
-    "next": "13.5.1",
-    "next-themes": "^0.4.6",
-    "postcss": "8.4.30",
-    "react": "18.2.0",
-    "react-day-picker": "^8.10.1",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.53.0",
-    "react-resizable-panels": "^2.1.3",
-    "recharts": "^2.12.7",
-    "sonner": "^1.5.0",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss": "3.3.3",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "5.2.2",
-    "vaul": "^0.9.9",
-    "zod": "^3.23.8"
-  }
+"use client";
+
+import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles, Star, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
+
+export function HeroSection() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return (
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Interactive cursor glow */}
+      <motion.div
+        className="fixed w-96 h-96 pointer-events-none z-0 opacity-20"
+        style={{
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%)',
+          left: mousePosition.x - 192,
+          top: mousePosition.y - 192,
+        }}
+        animate={{
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 via-blue-500/10 to-purple-600/20 dark:from-emerald-600/30 dark:via-blue-600/20 dark:to-purple-700/30">
+        {/* Enhanced animated blobs */}
+        <motion.div
+          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-emerald-400/40 to-teal-500/30 rounded-full mix-blend-multiply filter blur-2xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+            scale: [1, 1.3, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+        <motion.div
+          className="absolute top-40 right-10 w-96 h-96 bg-blue-400/30 rounded-full mix-blend-multiply filter blur-xl"
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+            scale: [1, 0.8, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-20 left-1/2 w-80 h-80 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-xl"
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+      </div>
+
+      {/* Floating Particles */}
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-emerald-400/60 dark:bg-emerald-300/40 rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.3, 1, 0.3],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex items-center justify-center mb-6"
+        >
+          <Sparkles className="w-6 h-6 text-emerald-500 mr-2" />
+          <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30 px-4 py-2 rounded-full">
+            Essential Islamic Tools
+          </span>
+        </motion.div>
+
+        <motion.h1
+          className="text-5xl sm:text-6xl lg:text-7xl font-poppins font-bold mb-8 leading-tight"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+        >
+          <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 dark:from-emerald-400 dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            VismifyTools
+          </span>
+          <br />
+          <motion.span 
+            className="text-gray-800 dark:text-gray-100"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            Essential Islamic Tools in One Place
+          </motion.span>
+        </motion.h1>
+
+        <motion.p
+          className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          Fast, simple, and reliable tools for every Muslim worldwide. 
+          <br className="hidden sm:block" />
+          Enhance your daily Islamic practices with our modern platform.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Explore Tools
+              <motion.div
+                className="ml-2"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight className="w-5 h-5" />
+              </motion.div>
+            </Button>
+          </motion.div>
+          
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="px-8 py-6 text-lg font-semibold rounded-2xl border-2 border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300"
+            >
+              Learn More
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
+          {[
+            { number: "100K+", label: "Active Users" },
+            { number: "99.9%", label: "Uptime" },
+            { number: "24/7", label: "Available" }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              className="text-center"
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <div className="text-3xl sm:text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
+                {stat.number}
+              </div>
+              <div className="text-gray-600 dark:text-gray-400 font-medium">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
 }
